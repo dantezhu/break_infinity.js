@@ -1121,6 +1121,9 @@ export default class Decimal {
       return this.eq(0);
   }
 
+  // Euclidian division: q = sign(y) * floor(x / abs(y))
+  // result = x - q * y    where  0 <= result < abs(y)
+  // python示例: x - math.floor(x / y) * y
   public mod(value: DecimalSource) {
       return this.sub(
           this.div(value).floor().mul(value)
