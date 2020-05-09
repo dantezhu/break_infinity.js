@@ -1143,7 +1143,17 @@
 
     Decimal.prototype.notEquals = function (value) {
       return this.neq(value);
+    }; // ADD-BEGIN by dantezhu in 2020-05-10 00:41:36
+
+
+    Decimal.prototype.isZero = function () {
+      return this.eq(0);
     };
+
+    Decimal.prototype.mod = function (value) {
+      return this.sub(this.div(value).floor().mul(value));
+    }; // ADD-END
+
 
     Decimal.prototype.lt = function (value) {
       var decimal = D(value);
