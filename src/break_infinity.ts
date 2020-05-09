@@ -1116,6 +1116,18 @@ export default class Decimal {
     return this.neq(value);
   }
 
+// ADD-BEGIN by dantezhu in 2020-05-10 00:41:36
+  public isZero() {
+      return this.eq(0);
+  }
+
+  public mod(value: DecimalSource) {
+      return this.sub(
+          this.div(value).floor().mul(value)
+      )
+  }
+// ADD-END
+
   public lt(value: DecimalSource) {
     const decimal = D(value);
     if (this.m === 0) {
